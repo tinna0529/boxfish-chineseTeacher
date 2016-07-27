@@ -1,6 +1,6 @@
 {
   "demoUrl" : "http://101.201.66.32:8099",
-  "testUrl" : "http://123.56.13.168:8099",
+  "testUrl" : "http://123.56.13.168:8098",
   "teacherList" : "/web/teacher/teacherStepList",
   "referenceUrl" : "http://192.168.55.85:8099",
   "listAPI" : "/web/common/addressList",
