@@ -1,0 +1,241 @@
+@titleBorderRadius:10px;
+@main-left:3;
+@main-right:2;
+.nav-trans(@transAttr,@transAttrTime){
+  -moz-transition: @transAttr @transAttrTime ease-in;
+  -webkit-transition: @transAttr @transAttrTime ease-in;
+  -o-transition: @transAttr @transAttrTime ease-in;
+  transition: @transAttr @transAttrTime ease-in;
+}
+
+.flex-container(@direct){
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction:@direct;
+  flex-direction:@direct;
+}
+
+//标签页中标签的样式
+.nav-tabs{
+  width: 40%;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0;
+  margin: 0 auto 20px auto;
+  border-bottom-left-radius: @titleBorderRadius;
+  border-bottom-right-radius: @titleBorderRadius;
+  flex-direction: row;
+  text-align: center;
+  &>li{
+    margin:0;
+    list-style-type: none;
+    flex:1;
+    background-color: #DFE3E4;
+    &:hover{
+      background: rgb(47,64,80);
+      cursor: pointer;
+    }
+    &:nth-child(1){
+      border-bottom-left-radius: @titleBorderRadius;
+      margin-right: 0.5px;
+    }
+    &:nth-child(2){
+      border-bottom-right-radius: @titleBorderRadius;
+      margin-left: 0.5px;
+    }
+    .active{
+      background: #00ffff;
+    }
+    a{
+      display:block;
+      background: transparent !important;
+      border:0 !important;
+      color:#fff;
+      width:100%;
+      height:49px;
+      line-height:49px;
+    }
+  }
+}
+
+//查询表单的样式
+.queryOption{
+  height:40px;
+  overflow: hidden;
+  .nav-trans(height,0.3s);
+  .row{
+    width:88%;
+    min-width:970px;
+    margin-left: -10px;  //使查询表单的左侧与表格左侧对齐
+    margin-top: 5px;
+    .field{
+      float: left;
+      margin-left: 10px;
+    }
+    .more{
+      height:34px;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+}
+//筛选按钮的样式
+.queryBtn{
+  margin-left: 20px;
+}
+
+.main{
+  overflow: hidden;
+  clear: left;
+  padding-top: 20px;
+  .flex-container(row);
+  .tableContainer{
+    -webkit-flex:@main-left;
+    flex:@main-left;
+    overflow: auto;
+    position: relative;
+    /* width: 75%;
+     top: 20px;*/
+    .table-header{
+      text-align: right;
+    }
+    .table-header button,.table-foot button{
+      margin: auto auto 5px 10px;
+    }
+    .table-wrap{
+      border:1px solid aliceblue;
+      width:100%;
+      overflow: auto;
+      position: relative;
+      .table {
+        white-space: nowrap;
+        text-align: center;
+        margin-bottom: 15px;
+        overflow: auto;
+        thead {
+          th {
+            text-align:center;
+            border:0;
+          }
+        }
+        tbody {
+          td {
+            border:0;
+            padding:10px 20px;
+          }
+        }
+      }
+    }
+
+  }
+  .right-bar{
+    -webkit-flex:@main-right;
+    flex:@main-right;
+    &>div{
+      width:98%;
+      margin:0 auto;
+    }
+    img{
+      width:90%;
+      display: block;
+      margin:0 auto;
+    }
+    textarea{
+      resize: none;
+      border: solid rgb(208,208,208) 1px ;
+    }
+  }
+
+}
+//显示内容的表格的样式
+
+
+.left-floated{
+  float: left;
+}
+
+.right-floated{
+  float: right;
+}
+
+.border{
+  border: 1px solid aliceblue;
+  padding:15px 2px;
+}
+.inline {
+  display: inline-block;
+}
+
+.showAllQuery{
+  height: 120px !important;
+}
+
+.modal .form-group{
+  label{
+    display: inline-block;
+    width :30%;
+  }
+  .form-control{
+    display: inline-block;
+    width:60%;
+    margin:5px auto;
+  }
+  input[type=text].form-control{
+    height:29px;
+  }
+}
+.modal{
+  .lang-level{
+    label{
+      display: inline-block;
+      width:30%;
+    }
+    label:nth-child(3){
+      display: inline-block;
+      text-align:center;
+      margin-left: 26px;
+      width:18%;
+    }
+    input:nth-child(4){
+      width:19%;
+    }
+    .form-control{
+      display: inline-block;
+      width:25%;
+      margin:1px auto;
+    }
+  }
+  .field{
+    display: inline-block;
+    width:16%;
+  }
+  .resume-text{
+    width:90%;
+    textarea{
+      width:100% !important;
+      height:70px;
+    }
+  }
+}
+
+textarea{
+  resize: none;
+}
+.modal-dialog{
+  width:480px;
+  margin:0 auto;
+}
+.modal-body{
+  width:80%;
+  margin:0 auto;
+}
+.lectureDialog .timeLot{
+  margin-left:106px !important;
+}
+.content{
+  position: relative;
+}

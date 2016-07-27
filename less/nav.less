@@ -1,0 +1,106 @@
+//菜单的样式
+.accordion {
+  width: 100%;
+  max-width: 360px;
+  background: #475360;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  list-style: none;
+  padding-left: 0;
+  overflow: hidden;
+  li{
+    position: relative;
+    &:last-child {
+      border-bottom: 0;
+    }
+    &:hover {
+      background-color: rgb(100,100,100);
+      a {
+        font-size: 16px;
+      }
+    }
+    i{
+      position: absolute;
+      top: 16px;
+      left: 25px;
+      font-size: 18px;
+      color: #fff;
+      -webkit-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+    }
+    width: 200px;
+  }
+  li.active{
+    background-color: rgb(100,100,100);
+    a {
+      font-size: 16px;
+    }
+  }
+  .link {
+    cursor: pointer;
+    display: block;
+    padding: 15px 15px 15px 55px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    border-bottom: 0;
+  }
+}
+
+.accordion li i.glyphicon-triangle-right {
+  right: 12px;
+  left: auto;
+  font-size: 16px;
+}
+.accordion li.open .link {
+  color: #fff;
+}
+.accordion li.open i {
+  color: #fff;
+}
+.accordion li.open i.glyphicon-triangle-right {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+//子菜单的样式
+.submenu {
+  display: none;
+  background: #475360;
+  font-size: 14px;
+  list-style: none;
+  margin-left: -30px;
+}
+.submenu li{
+  position: relative;
+}
+.submenu a {
+  display: block;
+  text-decoration: none;
+  color: #d9d9d9;
+  padding: 12px;
+  padding-left: 42px;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.submenu a:hover {
+  background: #b63b4d;
+  color: #FFF;
+}
+.link a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-link{
+  display: block;
+  width:100%;
+}

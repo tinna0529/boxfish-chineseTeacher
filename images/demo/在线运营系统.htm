@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)http://localhost:63342/boxfish-Chinese-teacher/index.html#/teacherManagement?_k=5e31ov -->
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./在线运营系统_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./在线运营系统_files/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="./在线运营系统_files/daterangepicker-bs3.css">
+    <title>在线运营系统</title>
+<style type="text/css">.accordion {
+  width: 100%;
+  max-width: 360px;
+  background: #475360;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  list-style: none;
+  margin-left: -25px;
+  overflow: hidden;
+}
+.accordion li {
+  position: relative;
+  width: 200px;
+}
+.accordion li:last-child {
+  border-bottom: 0;
+}
+.accordion li i {
+  position: absolute;
+  top: 16px;
+  left: 12px;
+  font-size: 18px;
+  color: #fff;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.accordion .link {
+  cursor: pointer;
+  display: block;
+  padding: 15px 15px 15px 42px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  border-bottom: 0;
+}
+.accordion li i.glyphicon-triangle-right {
+  right: 12px;
+  left: auto;
+  font-size: 16px;
+}
+.accordion li.open .link {
+  color: #fff;
+}
+.accordion li.open i {
+  color: #fff;
+}
+.accordion li.open i.glyphicon-triangle-right {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.submenu {
+  display: none;
+  background: #475360;
+  font-size: 14px;
+  list-style: none;
+  margin-left: -30px;
+}
+.submenu li {
+  position: relative;
+}
+.submenu a {
+  display: block;
+  text-decoration: none;
+  color: #d9d9d9;
+  padding: 12px;
+  padding-left: 42px;
+  -webkit-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.submenu a:hover {
+  background: #b63b4d;
+  color: #FFF;
+}
+.link a {
+  color: #fff;
+}
+</style><style type="text/css">#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+#app #left {
+  width: 200px;
+  height: 1000px;
+  background-color: #475360;
+  color: #fff;
+  overflow: hidden;
+  -moz-transition: width 0.2s ease-in;
+  -webkit-transition: width 0.2s ease-in;
+  -o-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
+}
+#app #left .logo {
+  height: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+  padding: 10px 0;
+  overflow: hidden;
+  width: 200px;
+}
+#app #right {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  min-width: 1000px;
+  -moz-transition: left 0.2s ease-in;
+  -webkit-transition: left 0.2s ease-in;
+  -o-transition: left 0.2s ease-in;
+  transition: left 0.2s ease-in;
+}
+#app #right .right-top {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  margin: 10px 0;
+  border-bottom: 1px solid #475360;
+  position: relative;
+}
+#app #right .right-top .btn {
+  margin-left: 10px;
+  background: #fff;
+  border: 1px solid #475360;
+}
+#app #right .content {
+  min-width: 1050px;
+  padding: 0px 10px 20px 10px;
+}
+.slideNav_left {
+  width: 70px !important;
+}
+.slideNav_right {
+  left: 70px !important;
+}
+a,
+a:hover,
+a:visited,
+a:active,
+a:link {
+  text-decoration: none;
+}
+</style><style type="text/css">.nav-tabs {
+  width: 40%;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0;
+  margin: 0 auto 20px auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  flex-direction: row;
+  text-align: center;
+}
+.nav-tabs > li {
+  margin: 0;
+  list-style-type: none;
+  flex: 1;
+  background-color: #DFE3E4;
+}
+.nav-tabs > li:hover {
+  background: #2f4050;
+  cursor: pointer;
+}
+.nav-tabs > li:nth-child(1) {
+  border-bottom-left-radius: 10px;
+  margin-right: 0.5px;
+}
+.nav-tabs > li:nth-child(2) {
+  border-bottom-right-radius: 10px;
+  margin-left: 0.5px;
+}
+.nav-tabs > li .active {
+  background: #00ffff;
+}
+.nav-tabs > li a {
+  display: block;
+  background: transparent !important;
+  border: 0 !important;
+  color: #fff;
+  width: 100%;
+  height: 49px;
+  line-height: 49px;
+}
+.queryOption {
+  height: 40px;
+  overflow: hidden;
+  -moz-transition: height 0.3s ease-in;
+  -webkit-transition: height 0.3s ease-in;
+  -o-transition: height 0.3s ease-in;
+  transition: height 0.3s ease-in;
+}
+.queryOption .row {
+  width: 88%;
+  min-width: 960px;
+  margin-left: -10px;
+  margin-top: 5px;
+}
+.queryOption .row .field {
+  float: left;
+  margin-left: 10px;
+}
+.queryOption .row .more {
+  height: 34px;
+}
+.queryOption .row .more span {
+  cursor: pointer;
+}
+.queryBtn {
+  margin-left: 20px;
+}
+.main {
+  overflow: hidden;
+  clear: left;
+  padding-top: 20px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+.main .tableContainer {
+  -webkit-flex: 3;
+  flex: 3;
+  overflow: auto;
+  position: relative;
+  /* width: 75%;
+     top: 20px;*/
+}
+.main .tableContainer .table-header {
+  text-align: right;
+}
+.main .tableContainer .table-header button,
+.main .tableContainer .table-foot button {
+  margin: auto auto 5px 10px;
+}
+.main .tableContainer .table-wrap {
+  border: 1px solid aliceblue;
+  width: 100%;
+  overflow: auto;
+}
+.main .tableContainer .table-wrap .table {
+  white-space: nowrap;
+  text-align: center;
+  margin-bottom: 15px;
+  overflow: auto;
+}
+.main .tableContainer .table-wrap .table thead th {
+  text-align: center;
+  border: 0;
+}
+.main .tableContainer .table-wrap .table tbody td {
+  border: 0;
+  padding: 10px 20px;
+}
+.main .right-bar {
+  -webkit-flex: 2;
+  flex: 2;
+}
+.main .right-bar > div {
+  width: 98%;
+  margin: 0 auto;
+}
+.main .right-bar img {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+.main .right-bar textarea {
+  resize: none;
+  border: solid #d0d0d0 1px;
+}
+.left-floated {
+  float: left;
+}
+.right-floated {
+  float: right;
+}
+.border {
+  border: 1px solid aliceblue;
+  padding: 15px 2px;
+}
+.inline {
+  display: inline-block;
+}
+.showAllQuery {
+  height: 80px !important;
+}
+</style><style type="text/css">.page {
+  width: 274px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+}
+.page .page-page {
+  display: inline-block;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  color: #000;
+}
+.page .page-page:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.page .page-page1 {
+  border-right: none;
+}
+.page .page1 {
+  width: 40px;
+}
+.page .page2 {
+  width: 60px;
+}
+.page .page3 {
+  width: 70px;
+}
+</style><style type="text/css">.inline input {
+  display: inline-block;
+  width: 60px;
+}
+.pri-l {
+  padding-top: 33px;
+}
+.pri-l > div {
+  background-color: #F2F4F5;
+}
+.pri-l > div div {
+  width: 80%;
+  margin: 0 auto;
+}
+.pri-l > div div .privateContentRight {
+  width: 100%;
+  height: 100px;
+}
+.pub-l {
+  padding-top: 35px;
+  height: 100%;
+  text-align: center;
+}
+.pub-l .tm-pub-right {
+  margin: 5px 5px 15px 5px;
+  color: #808080;
+  font-size: medium;
+}
+.table-header button {
+  margin-bottom: 3px;
+}
+.pub-tm-detail img {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+.pub-tm-detail .form-group {
+  margin-top: 5px;
+}
+.pub-tm-detail .form-group label {
+  padding-right: 10%;
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+}
+.pub-tm-detail .form-group .form-control {
+  display: inline-block;
+  width: 60%;
+}
+.pub-tm-detail .modal-dialog {
+  width: 500px;
+}
+.pub-tm-detail .modal-dialog .form-group {
+  width: 70%;
+  margin: 10px auto;
+}
+.pri-tm-detail .form-group label {
+  padding-right: 10%;
+  display: inline-block;
+  width: 28%;
+}
+.pri-tm-detail .form-group .form-control {
+  display: inline-block;
+  width: 64%;
+}
+.pri-tm-detail .form-group .score {
+  color: #337ab7;
+}
+.pri-tm-detail .resume-text {
+  width: 80% !important;
+}
+.pri-tm-detail .resume-text textarea {
+  width: 100% !important;
+  resize: none;
+}
+.pri-tm-detail .lang-level label:nth-child(1) {
+  padding-right: 5%;
+  display: inline-block;
+  width: 28%;
+}
+.pri-tm-detail .lang-level label:nth-child(3) {
+  display: inline-block;
+  width: 15%;
+  padding: 2%;
+  text-align: center;
+}
+.pri-tm-detail .lang-level .form-control {
+  display: inline-block;
+  width: 30%;
+}
+.pri-tm-detail .lang-level .form-control:nth-child(4) {
+  display: inline-block;
+  width: 20%;
+}
+.pri-tm-detail .modal-dialog {
+  width: 500px;
+}
+.pri-tm-detail .modal-dialog .form-group {
+  width: 84%;
+  margin: 10px 0;
+}
+</style><style type="text/css">/*.tc-pub{
+  button{
+    margin: 5px 5px 5px 0;
+  }
+  textarea{
+    width:100%;
+    height:200px;
+  }
+}
+
+.tc-pri{
+  .tc-baseInfo{
+    margin-bottom: 10px !important;
+  }
+  .form-group{
+    width:70%;
+    margin:0 auto;
+    textarea{
+      width:100%;
+      height:100px;
+    }
+  }
+}*/
+.pub-tc-detail img {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+.pub-tc-detail .form-group {
+  margin-top: 5px;
+}
+.pub-tc-detail .form-group label {
+  padding-right: 10%;
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+}
+.pub-tc-detail .form-group .form-control {
+  display: inline-block;
+  width: 60%;
+}
+.pub-tc-detail .modal-dialog {
+  width: 500px;
+}
+.pub-tc-detail .modal-dialog .form-group {
+  width: 70%;
+  margin: 10px auto;
+}
+.pri-tc-detail .f-wrap {
+  width: 80%;
+  margin: 0 auto;
+}
+.pri-tc-detail .f-wrap .form-group {
+  margin-top: 5px;
+}
+.pri-tc-detail .modal-dialog {
+  width: 500px;
+}
+.pri-tc-detail .modal-dialog .form-group {
+  width: 100%;
+  margin: 10px auto;
+}
+</style><style type="text/css">.ti-score .form-group {
+  margin-top: 5px;
+}
+.ti-score .form-group label {
+  padding-right: 10%;
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+}
+.ti-score .form-group .form-control {
+  display: inline-block;
+  width: 60%;
+}
+.ti-score .modal-dialog {
+  width: 500px;
+}
+.ti-score .modal-dialog .form-group {
+  width: 70%;
+  margin: 10px auto;
+}
+</style><style type="text/css">.auth-courses .modal-body div {
+  width: 80px;
+  margin: 10px;
+  display: inline-block;
+}
+.tl-detail .form-group,
+.tl-arr .form-group {
+  margin-top: 5px;
+}
+.tl-detail .form-group label,
+.tl-arr .form-group label {
+  padding-right: 10%;
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+}
+.tl-detail .form-group .form-control,
+.tl-arr .form-group .form-control {
+  display: inline-block;
+  width: 60%;
+}
+.tl-detail .modal-dialog,
+.tl-arr .modal-dialog {
+  width: 500px;
+}
+.tl-detail .modal-dialog .form-group,
+.tl-arr .modal-dialog .form-group {
+  width: 70%;
+  margin: 10px auto;
+}
+</style><style type="text/css">.tp-pub .border div {
+  width: 90%;
+  margin: 0 auto;
+}
+.tp-pub .border div textarea {
+  width: 100%;
+  height: 100px;
+}
+.tp-detail img {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+.tp-detail .form-group {
+  margin-top: 5px;
+}
+.tp-detail .form-group label {
+  padding-right: 10%;
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+}
+.tp-detail .form-group .form-control {
+  display: inline-block;
+  width: 60%;
+}
+.tp-detail .modal-dialog {
+  width: 500px;
+}
+.tp-detail .modal-dialog .form-group {
+  width: 70%;
+  margin: 10px auto;
+}
+</style><style type="text/css">html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+</style></head>
+
+<body><div id="app"><div data-reactroot=""><div id="left"><div class="logo"><img src="./在线运营系统_files/logo.jpg" style="display: inline-block;"><!-- react-text: 5 -->&nbsp;&nbsp;<!-- /react-text --><span>在线运营系统</span></div><ul id="accordion" class="accordion"><li><div class="link"><a class="item active" href="http://localhost:63342/boxfish-Chinese-teacher/index.html#/teacherManagement"><i class="glyphicon glyphicon-plus"></i><!-- react-text: 12 -->&nbsp;<!-- /react-text --><!-- react-text: 13 -->教师管理<!-- /react-text --></a></div></li><li><div class="link"><a class="item" href="http://localhost:63342/boxfish-Chinese-teacher/index.html#/teacherCheck"><i class="glyphicon glyphicon-filter"></i><!-- react-text: 18 -->&nbsp;<!-- /react-text --><!-- react-text: 19 -->审核<!-- /react-text --></a></div></li><li><div class="link"><a class="item" href="http://localhost:63342/boxfish-Chinese-teacher/index.html#/teacherInterview"><i class="glyphicon glyphicon-education"></i><!-- react-text: 24 -->&nbsp;<!-- /react-text --><!-- react-text: 25 -->面试<!-- /react-text --></a></div></li><li><div class="link"><a class="item" href="http://localhost:63342/boxfish-Chinese-teacher/index.html#/teacherLecture"><i class="glyphicon glyphicon-eye-open"></i><!-- react-text: 30 -->&nbsp;<!-- /react-text --><!-- react-text: 31 -->试讲<!-- /react-text --></a></div></li><li><div class="link"><a class="item" href="http://localhost:63342/boxfish-Chinese-teacher/index.html#/teacherPool"><i class="glyphicon glyphicon-trash"></i><!-- react-text: 36 -->&nbsp;<!-- /react-text --><!-- react-text: 37 -->池子<!-- /react-text --></a></div></li></ul></div><div id="right"><div class="right-top" style="margin-bottom: 0px;"><div class="item"><button class="btn"><i class="glyphicon glyphicon-align-justify"></i></button></div></div><div class="ui divider"></div><div class="content"><div class="teacherManagement"><ul class="nav-tabs" role="tablist"><li role="presentation" class="active"><a href="http://localhost:63342/boxfish-Chinese-teacher/index.html#public" aria-controls="public" role="tab" data-toggle="tab">公立/民办</a></li><li role="presentation"><a href="http://localhost:63342/boxfish-Chinese-teacher/index.html#private" aria-controls="private" role="tab" data-toggle="tab">非公立/民办</a></li></ul><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="public"><div class="queryOption left-floated"><div class="form row"><div><div class="field" style="width: 12%;"><input type="text" class="form-control" placeholder="教师姓名"></div><div class="field" style="width: 15%;"><input type="text" class="form-control" placeholder="教师电话"></div><div><div class="field"><select class="form-control"><option value="北京">北京</option><option value="上海">上海</option><option value="广东">广东</option><option value="深圳">深圳</option><option value="湖南">湖南</option><option value="天津">天津</option><option value="河北">河北</option><option value="河南">河南</option><option value="辽宁">辽宁</option></select></div><div class="field"><select class="form-control"><option value="北京">北京</option><option value="上海">上海</option><option value="天津">天津</option><option value="长沙">长沙</option><option value="长春">长春</option></select></div><div class="field"><select class="form-control"><option value="海淀区">海淀区</option><option value="朝阳区">朝阳区</option><option value="东城区">东城区</option><option value="西城区">西城区</option><option value="门头沟区">门头沟区</option><option value="房山区">房山区</option></select></div></div><div class="field"><div style="position: relative; width: 220px;"><input type="text" class="form-control datePicker" style="padding-left: 30px;"><i class="glyphicon glyphicon-calendar" style="position: absolute; left: 10px; top: 8px;"></i></div></div><div class="field more"><span class="glyphicon glyphicon-triangle-bottom"></span></div></div></div><div class="form row"><div class="field"><input type="text" class="form-control" placeholder="请填写学校"></div><div class="field"><select class="form-control"><option value="教龄">教龄</option><option value="1年以下">1年以下</option><option value="1-3年">1-3年</option><option value="4-6年">4-6年</option><option value="7-10年">7-10年</option><option value="全部">全部</option></select></div><div class="field"><select class="form-control"><option value="课程类型">课程类型</option><option value="phonic">phonic</option><option value="grammer">grammer</option><option value="function">function</option><option value="conversation">conversation</option><option value="examination">examination</option><option value="全部">全部</option></select></div><div class="field"><select class="form-control"><option value="全部">全部</option><option value="冻结">冻结</option><option value="正常">正常</option></select></div><div class="field"><label>综合成绩:&nbsp;</label><div class="inline"><input type="text" class="form-control"><!-- react-text: 122 -->&nbsp;-&nbsp;<!-- /react-text --><input type="text" class="form-control"></div></div></div></div><div class="queryBtn left-floated"><button class="btn btn-primary" style="margin-right: 10px;">筛选</button></div><div class="main"><div class="tableContainer"><div class="table-header"><button class="btn btn-default btn-sm">冻结</button><button class="btn btn-default btn-sm">解冻</button></div><div class="table-wrap"><table class="table table-striped"><thead><tr><th><input type="checkbox"></th><th>账号</th><th>姓名</th><th>综合评分</th><th>电话</th><th>学校</th><th>省</th><th>市</th><th>区</th><th>教龄</th><th>账号状态</th><th>报名日期</th></tr></thead><tbody><tr><td><input type="checkbox"></td><td>1</td><td>王小明</td><td>100</td><td>13800138000</td><td>蓝翔技校</td><td>山东省</td><td>济南市</td><td>不在服务区</td><td>10年</td><td>激活</td><td>2020.12.22</td><td class="table-operation" id="option0"><span style="cursor: pointer; color: rgb(170, 170, 170); font-size: 12px;">详情</span></td></tr><tr><td><input type="checkbox"></td><td>1</td><td>王小明</td><td>100</td><td>13800138000</td><td>蓝翔技校</td><td>山东省</td><td>济南市</td><td>不在服务区</td><td>10年</td><td>激活</td><td>2020.12.22</td><td class="table-operation" id="option1"><span style="cursor: pointer; color: rgb(170, 170, 170); font-size: 12px;">详情</span></td></tr><tr><td><input type="checkbox"></td><td>1</td><td>王小明</td><td>100</td><td>13800138000</td><td>蓝翔技校</td><td>山东省</td><td>济南市</td><td>不在服务区</td><td>10年</td><td>激活</td><td>2020.12.22</td><td class="table-operation" id="option2"><span style="cursor: pointer; color: rgb(170, 170, 170); font-size: 12px;">详情</span></td></tr><tr><td><input type="checkbox"></td><td>1</td><td>王小明</td><td>100</td><td>13800138000</td><td>蓝翔技校</td><td>山东省</td><td>济南市</td><td>不在服务区</td><td>10年</td><td>激活</td><td>2020.12.22</td><td class="table-operation" id="option3"><span style="cursor: pointer; color: rgb(170, 170, 170); font-size: 12px;">详情</span></td></tr><tr><td><input type="checkbox"></td><td>1</td><td>王小明</td><td>100</td><td>1380013800000000000</td><td>蓝翔技校</td><td>山东省</td><td>济南市</td><td>不在服务区</td><td>10年</td><td>激活</td><td>2020.12.22</td><td class="table-operation" id="option4"><span style="cursor: pointer; color: rgb(170, 170, 170); font-size: 12px;">详情</span></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="table-operation"><div style="visibility: hidden;">empty</div></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="table-operation"><div style="visibility: hidden;">empty</div></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="table-operation"><div style="visibility: hidden;">empty</div></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="table-operation"><div style="visibility: hidden;">empty</div></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="table-operation"><div style="visibility: hidden;">empty</div></td></tr></tbody></table></div><div class="page center-block"><a class="icon item page-page page1"><i class="glyphicon glyphicon-menu-left"></i></a><a class="item page-page page2">首页</a><a class="item page-page page3"><!-- react-text: 309 -->/<!-- /react-text --></a><a class="item page-page page2">尾页</a><a class="icon item page-page page-page1 page1"><i class="glyphicon glyphicon-menu-right"></i></a></div></div><div class=" pub-tm-detail modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div><img src="./在线运营系统_files/demo.jpg"></div><div><div class="form-group"><label>颜值:</label><input type="text" class="form-control"></div><div class="form-group"><label>语音:</label><input type="text" class="form-control"></div><div class="form-group"><label>语言准确性:</label><input type="text" class="form-control"></div><div class="form-group"><label>趣味性:</label><input type="text" class="form-control"></div><div class="form-group"><label>思想性:</label><input type="text" class="form-control"></div></div></div><div class="modal-footer"><button type="button" class="btn btn-primary" data-dismiss="modal">保存</button></div></div></div></div></div></div><div role="tabpanel" class="tab-pane" id="private"><div class="queryOption left-floated"><div class="form row"><div><div class="field" style="width: 12%;"><input type="text" class="form-control" placeholder="教师姓名"></div><div class="field" style="width: 15%;"><input type="text" class="form-control" placeholder="教师电话"></div><div><div class="field"><select class="form-control"><option value="北京">北京</option><option value="上海">上海</option><option value="广东">广东</option><option value="深圳">深圳</option><option value="湖南">湖南</option><option value="天津">天津</option><option value="河北">河北</option><option value="河南">河南</option><option value="辽宁">辽宁</option></select></div><div class="field"><select class="form-control"><option value="北京">北京</option><option value="上海">上海</option><option value="天津">天津</option><option value="长沙">长沙</option><option value="长春">长春</option></select></div><div class="field"><select class="form-control"><option value="海淀区">海淀区</option><option value="朝阳区">朝阳区</option><option value="东城区">东城区</option><option value="西城区">西城区</option><option value="门头沟区">门头沟区</option><option value="房山区">房山区</option></select></div></div><div class="field"><div style="position: relative; width: 220px;"><input type="text" class="form-control datePicker" style="padding-left: 30px;"><i class="glyphicon glyphicon-calendar" style="position: absolute; left: 10px; top: 8px;"></i></div></div><div class="field more"><span class="glyphicon glyphicon-triangle-bottom"></span></div></div></div><div class="form row"><div class="field"><select class="form-control"><option value="课程类型">课程类型</option><option value="phonic">phonic</option><option value="grammer">grammer</option><option value="function">function</option><option value="conversation">conversation</option><option value="examination">examination</option><option value="全部">全部</option></select></div><div class="field"><select class="form-control"><option value="全部">全部</option><option value="冻结">冻结</option><option value="正常">正常</option></select></div><div class="field"><label>口语成绩:&nbsp;</label><div class="inline"><input type="text" class="form-control"><!-- react-text: 397 -->&nbsp;-&nbsp;<!-- /react-text --><input type="text" class="form-control"></div></div><div class="field"><label>测试成绩:&nbsp;</label><div class="inline"><input type="text" class="form-control"><!-- react-text: 403 -->&nbsp;-&nbsp;<!-- /react-text --><input type="text" class="form-control"></div></div><div class="field"><label>综合成绩:&nbsp;</label><div class="inline"><input type="text" class="form-control"><!-- react-text: 409 -->&nbsp;-&nbsp;<!-- /react-text --><input type="text" class="form-control"></div></div></div></div><div class="queryBtn left-floated"><button class="btn btn-primary" style="margin-right: 10px;">筛选</button></div><div class="main"><div class="tableContainer"><div class="table-header"><button class="btn btn-default btn-sm">冻结</button><button class="btn btn-default btn-sm">解冻</button></div><div class="table-wrap"><table class="table table-striped"><thead><tr><th><input type="checkbox"></th><th>账号</th><th>姓名</th><th>综合评分</th><th>电话</th><th>省</th><th>市</th><th>区</th><th>账号状态</th><th>报名日期</th></tr></thead><tbody></tbody></table></div><div class="page center-block"><a class="icon item page-page page1"><i class="glyphicon glyphicon-menu-left"></i></a><a class="item page-page page2">首页</a><a class="item page-page page3"><!-- react-text: 439 -->/<!-- /react-text --></a><a class="item page-page page2">尾页</a><a class="icon item page-page page-page1 page1"><i class="glyphicon glyphicon-menu-right"></i></a></div></div></div></div><div class="confirm-dialog modal fade freeze"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-body">确认冻结选中老师的账号?</div><div class="modal-footer"><button type="button" class="btn btn-primary" data-dismiss="modal">确认</button><button type="button" class="btn btn-primary" data-dismiss="modal">取消</button></div></div></div></div><div class="confirm-dialog modal fade activity"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-body">确认激活选中老师的账号?</div><div class="modal-footer"><button type="button" class="btn btn-primary" data-dismiss="modal">确认</button><button type="button" class="btn btn-primary" data-dismiss="modal">取消</button></div></div></div></div></div></div></div></div></div></div>
+
+
+
+<script src="./在线运营系统_files/jquery-2.2.0.min.js"></script>
+<script src="./在线运营系统_files/jQuery.md5.js"></script>
+<script src="./在线运营系统_files/bootstrap.min.js"></script>
+<script src="./在线运营系统_files/jquery.tablesort.js"></script>
+<script src="./在线运营系统_files/jquery.mCustomScrollbar.min.js"></script>
+<script src="./在线运营系统_files/moment.js"></script>
+<script src="./在线运营系统_files/daterangepicker.js"></script>
+<script type="text/javascript" src="./在线运营系统_files/main.js"></script><div class="daterangepicker dropdown-menu show-calendar opensright"><div class="ranges"><div class="range_inputs"><div class="daterangepicker_start_input"><label for="daterangepicker_start">从</label><input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled"></div><div class="daterangepicker_end_input"><label for="daterangepicker_end">到</label><input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled"></div><button class="applyBtn btn btn-small btn-success">确定</button>&nbsp;<button class="cancelBtn btn btn-small btn-default">取消</button></div></div><div class="clear"></div><div class="calendar right"><div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><i class="fa fa-arrow-left icon-arrow-left glyphicon glyphicon-arrow-left"></i></th><th colspan="5" class="month">六月 2016</th><th class="next available"><i class="fa fa-arrow-right icon-arrow-right glyphicon glyphicon-arrow-right"></i></th></tr><tr><th>周日</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th></tr></thead><tbody><tr><td class="off disabled" data-title="r0c0">29</td><td class="off disabled" data-title="r0c1">30</td><td class="off disabled" data-title="r0c2">31</td><td class="off disabled" data-title="r0c3">1</td><td class="off disabled" data-title="r0c4">2</td><td class="off disabled" data-title="r0c5">3</td><td class="available active start-date end-date" data-title="r0c6">4</td></tr><tr><td class="available" data-title="r1c0">5</td><td class="available" data-title="r1c1">6</td><td class="available" data-title="r1c2">7</td><td class="available" data-title="r1c3">8</td><td class="available" data-title="r1c4">9</td><td class="available" data-title="r1c5">10</td><td class="available" data-title="r1c6">11</td></tr><tr><td class="available" data-title="r2c0">12</td><td class="available" data-title="r2c1">13</td><td class="available" data-title="r2c2">14</td><td class="available" data-title="r2c3">15</td><td class="available" data-title="r2c4">16</td><td class="available" data-title="r2c5">17</td><td class="available" data-title="r2c6">18</td></tr><tr><td class="available" data-title="r3c0">19</td><td class="available" data-title="r3c1">20</td><td class="available" data-title="r3c2">21</td><td class="available" data-title="r3c3">22</td><td class="available" data-title="r3c4">23</td><td class="available" data-title="r3c5">24</td><td class="available" data-title="r3c6">25</td></tr><tr><td class="available" data-title="r4c0">26</td><td class="available" data-title="r4c1">27</td><td class="available" data-title="r4c2">28</td><td class="available" data-title="r4c3">29</td><td class="available" data-title="r4c4">30</td><td class="available off" data-title="r4c5">1</td><td class="available off" data-title="r4c6">2</td></tr><tr><td class="available off" data-title="r5c0">3</td><td class="available off" data-title="r5c1">4</td><td class="available off" data-title="r5c2">5</td><td class="available off" data-title="r5c3">6</td><td class="available off" data-title="r5c4">7</td><td class="available off" data-title="r5c5">8</td><td class="available off" data-title="r5c6">9</td></tr></tbody></table></div></div><div class="calendar left"><div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><i class="fa fa-arrow-left icon-arrow-left glyphicon glyphicon-arrow-left"></i></th><th colspan="5" class="month">六月 2016</th><th class="next available"><i class="fa fa-arrow-right icon-arrow-right glyphicon glyphicon-arrow-right"></i></th></tr><tr><th>周日</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th></tr></thead><tbody><tr><td class="available off" data-title="r0c0">29</td><td class="available off" data-title="r0c1">30</td><td class="available off" data-title="r0c2">31</td><td class="available" data-title="r0c3">1</td><td class="available" data-title="r0c4">2</td><td class="available" data-title="r0c5">3</td><td class="available active start-date end-date" data-title="r0c6">4</td></tr><tr><td class="available" data-title="r1c0">5</td><td class="available" data-title="r1c1">6</td><td class="available" data-title="r1c2">7</td><td class="available" data-title="r1c3">8</td><td class="available" data-title="r1c4">9</td><td class="available" data-title="r1c5">10</td><td class="available" data-title="r1c6">11</td></tr><tr><td class="available" data-title="r2c0">12</td><td class="available" data-title="r2c1">13</td><td class="available" data-title="r2c2">14</td><td class="available" data-title="r2c3">15</td><td class="available" data-title="r2c4">16</td><td class="available" data-title="r2c5">17</td><td class="available" data-title="r2c6">18</td></tr><tr><td class="available" data-title="r3c0">19</td><td class="available" data-title="r3c1">20</td><td class="available" data-title="r3c2">21</td><td class="available" data-title="r3c3">22</td><td class="available" data-title="r3c4">23</td><td class="available" data-title="r3c5">24</td><td class="available" data-title="r3c6">25</td></tr><tr><td class="available" data-title="r4c0">26</td><td class="available" data-title="r4c1">27</td><td class="available" data-title="r4c2">28</td><td class="available" data-title="r4c3">29</td><td class="available" data-title="r4c4">30</td><td class="available off" data-title="r4c5">1</td><td class="available off" data-title="r4c6">2</td></tr><tr><td class="available off" data-title="r5c0">3</td><td class="available off" data-title="r5c1">4</td><td class="available off" data-title="r5c2">5</td><td class="available off" data-title="r5c3">6</td><td class="available off" data-title="r5c4">7</td><td class="available off" data-title="r5c5">8</td><td class="available off" data-title="r5c6">9</td></tr></tbody></table></div></div></div><div class="daterangepicker dropdown-menu show-calendar opensright"><div class="ranges"><div class="range_inputs"><div class="daterangepicker_start_input"><label for="daterangepicker_start">从</label><input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled"></div><div class="daterangepicker_end_input"><label for="daterangepicker_end">到</label><input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled"></div><button class="applyBtn btn btn-small btn-success">确定</button>&nbsp;<button class="cancelBtn btn btn-small btn-default">取消</button></div></div><div class="clear"></div><div class="calendar right"><div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><i class="fa fa-arrow-left icon-arrow-left glyphicon glyphicon-arrow-left"></i></th><th colspan="5" class="month">六月 2016</th><th class="next available"><i class="fa fa-arrow-right icon-arrow-right glyphicon glyphicon-arrow-right"></i></th></tr><tr><th>周日</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th></tr></thead><tbody><tr><td class="off disabled" data-title="r0c0">29</td><td class="off disabled" data-title="r0c1">30</td><td class="off disabled" data-title="r0c2">31</td><td class="off disabled" data-title="r0c3">1</td><td class="off disabled" data-title="r0c4">2</td><td class="off disabled" data-title="r0c5">3</td><td class="available active start-date end-date" data-title="r0c6">4</td></tr><tr><td class="available" data-title="r1c0">5</td><td class="available" data-title="r1c1">6</td><td class="available" data-title="r1c2">7</td><td class="available" data-title="r1c3">8</td><td class="available" data-title="r1c4">9</td><td class="available" data-title="r1c5">10</td><td class="available" data-title="r1c6">11</td></tr><tr><td class="available" data-title="r2c0">12</td><td class="available" data-title="r2c1">13</td><td class="available" data-title="r2c2">14</td><td class="available" data-title="r2c3">15</td><td class="available" data-title="r2c4">16</td><td class="available" data-title="r2c5">17</td><td class="available" data-title="r2c6">18</td></tr><tr><td class="available" data-title="r3c0">19</td><td class="available" data-title="r3c1">20</td><td class="available" data-title="r3c2">21</td><td class="available" data-title="r3c3">22</td><td class="available" data-title="r3c4">23</td><td class="available" data-title="r3c5">24</td><td class="available" data-title="r3c6">25</td></tr><tr><td class="available" data-title="r4c0">26</td><td class="available" data-title="r4c1">27</td><td class="available" data-title="r4c2">28</td><td class="available" data-title="r4c3">29</td><td class="available" data-title="r4c4">30</td><td class="available off" data-title="r4c5">1</td><td class="available off" data-title="r4c6">2</td></tr><tr><td class="available off" data-title="r5c0">3</td><td class="available off" data-title="r5c1">4</td><td class="available off" data-title="r5c2">5</td><td class="available off" data-title="r5c3">6</td><td class="available off" data-title="r5c4">7</td><td class="available off" data-title="r5c5">8</td><td class="available off" data-title="r5c6">9</td></tr></tbody></table></div></div><div class="calendar left"><div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><i class="fa fa-arrow-left icon-arrow-left glyphicon glyphicon-arrow-left"></i></th><th colspan="5" class="month">六月 2016</th><th class="next available"><i class="fa fa-arrow-right icon-arrow-right glyphicon glyphicon-arrow-right"></i></th></tr><tr><th>周日</th><th>周一</th><th>周二</th><th>周三</th><th>周四</th><th>周五</th><th>周六</th></tr></thead><tbody><tr><td class="available off" data-title="r0c0">29</td><td class="available off" data-title="r0c1">30</td><td class="available off" data-title="r0c2">31</td><td class="available" data-title="r0c3">1</td><td class="available" data-title="r0c4">2</td><td class="available" data-title="r0c5">3</td><td class="available active start-date end-date" data-title="r0c6">4</td></tr><tr><td class="available" data-title="r1c0">5</td><td class="available" data-title="r1c1">6</td><td class="available" data-title="r1c2">7</td><td class="available" data-title="r1c3">8</td><td class="available" data-title="r1c4">9</td><td class="available" data-title="r1c5">10</td><td class="available" data-title="r1c6">11</td></tr><tr><td class="available" data-title="r2c0">12</td><td class="available" data-title="r2c1">13</td><td class="available" data-title="r2c2">14</td><td class="available" data-title="r2c3">15</td><td class="available" data-title="r2c4">16</td><td class="available" data-title="r2c5">17</td><td class="available" data-title="r2c6">18</td></tr><tr><td class="available" data-title="r3c0">19</td><td class="available" data-title="r3c1">20</td><td class="available" data-title="r3c2">21</td><td class="available" data-title="r3c3">22</td><td class="available" data-title="r3c4">23</td><td class="available" data-title="r3c5">24</td><td class="available" data-title="r3c6">25</td></tr><tr><td class="available" data-title="r4c0">26</td><td class="available" data-title="r4c1">27</td><td class="available" data-title="r4c2">28</td><td class="available" data-title="r4c3">29</td><td class="available" data-title="r4c4">30</td><td class="available off" data-title="r4c5">1</td><td class="available off" data-title="r4c6">2</td></tr><tr><td class="available off" data-title="r5c0">3</td><td class="available off" data-title="r5c1">4</td><td class="available off" data-title="r5c2">5</td><td class="available off" data-title="r5c3">6</td><td class="available off" data-title="r5c4">7</td><td class="available off" data-title="r5c5">8</td><td class="available off" data-title="r5c6">9</td></tr></tbody></table></div></div></div>
+
+
+</body></html>

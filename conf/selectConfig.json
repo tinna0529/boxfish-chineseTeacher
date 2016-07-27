@@ -1,0 +1,98 @@
+{
+  "provinces" :{
+    "name":"省",
+    "otherName":"province",
+    "arr" :  [{"name":"所有","code":null}]
+  },
+  "cities" : {
+    "name":"市",
+    "otherName":"city",
+    "arr" : []
+  },
+  "districts" :{
+    "name" : "区",
+    "otherName":"district",
+    "arr" : []
+  },
+  "teachingAge" :{
+    "name":"教龄",
+    "otherName":"teachingAge",
+    "arr" : [
+              {"name":"1年以下","code":"1"},
+              {"name":"1-3年","code":"3"},
+              {"name":"4-6年","code":"6"},
+              {"name":"7-10年","code":"10"},
+              {"name":"全部","code":""}
+      ]
+  },
+
+  "accountType" :{
+    "name":"账号类型",
+    "otherName":"isActive",
+    "arr": [
+      {"name":"冻结","code":"0"},
+      {"name":"正常","code":"1"},
+      {"name":"全部","code":""}
+     ]
+  },
+  "notPass" :{
+    "name":"不通过类型",
+    "otherName":"stateStep",
+    "arr": [
+      {"name":"审核不通过","code":"11"},
+      {"name":"面试不通过","code":"12"},
+      {"name":"试讲不通过","code":"13"},
+      {"name":"全部","code":""}
+    ]
+  },
+  "appointmentLectureState" :{
+    "name":"预约状态",
+    "otherName":"appointmentLectureState",
+    "arr": [
+      {"name":"已预约试讲","code":"1"},
+      {"name":"未预约试讲","code":"0"},
+      {"name":"全部","code":""}
+    ]
+  },
+  "appointmentInterviewState": {
+    "name":"预约状态",
+    "otherName":"appointmentInterviewState",
+    "arr": [
+      {"name":"已预约面试","code":"1"},
+      {"name":"未预约面试","code":"0"},
+      {"name":"全部","code":""}
+    ]
+  },
+  "degree" : {
+    "name" : "学位",
+    "otherName":"degree",
+    "arr": [
+      {"name":"初中","code":"0"},
+      {"name":"高中","code":"1"},
+      {"name":"大专","code":"2"},
+      {"name":"本科","code":"3"},
+      {"name":"硕士","code":"4"},
+      {"name":"博士","code":"5"},
+      {"name":"博士后","code":"6"},
+      {"name":"全部","code":""}
+    ]
+  },
+  "englishLevel" : {
+    "name" : "英语等级",
+    "otherName":"englishLevel",
+    "arr": [
+      {"name":"高中英语","code":"1"},
+      {"name":"四级(CET4)","code":"2"},
+      {"name":"六级(CET6)","code":"3"},
+      {"name":"专四(TEM4)","code":"4"},
+      {"name":"专八(TEM8)","code":"5"},
+      {"name":"全国英语等级考试(PETS)","code":"6"},
+      {"name":"雅思","code":"7"},
+      {"name":"托福","code":"8"},
+      {"name":"GRE","code":"9"},
+      {"name":"GMAT","code":"10"},
+      {"name":"LSAT","code":"11"},
+      {"name":"SAT","code":"12"}
+    ]
+  }
+}

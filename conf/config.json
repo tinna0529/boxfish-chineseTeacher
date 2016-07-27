@@ -1,0 +1,52 @@
+{
+  "publicTeacherLectureTable" :{
+    "thList" : ["","ID","姓名","电话","学校","省","市","区","教龄","报名日期","面试评分","试讲评分","综合评分","安排试讲"],
+    "displayAttr":["teacherId","name","telephone","school","province","city","county","teachingAgeString","createTime","interviewScore","trialScore","markScore","triallectureStartTime"],
+    "operations":["score","pass","inPool","detail"]
+  },
+  "privateTeacherLectureTable" :{
+    "thList" : ["","ID","姓名","电话","省","市","区","报名日期","面试评分","试讲评分","综合评分","安排试讲"],
+    "displayAttr":["teacherId","name","telephone","province","city","county","createTime","interviewScore","trialScore","markScore","triallectureStartTime"],
+    "operations":["score","pass","inPool","detail"]
+  },
+  "publicTeacherManagementTable" :{
+    "thList" : ["","ID","姓名","综合评分","试讲评分","面试评分","电话","学校","省","市","区","教龄","账号状态","报名日期"],
+    "displayAttr":["teacherId","name","markScore","trialScore","interviewScore","telephone","school","province","city","county","teachingAgeString","isActiveString","createTime"],
+    "operations":["interviewScore","lectureScore","detail"]
+  },
+  "privateTeacherManagementTable" :{
+    "thList" : ["","ID","姓名","综合评分","试讲评分","面试评分","电话","省","市","区","账号状态","报名日期"],
+    "displayAttr":["teacherId","name","markScore","trialScore","interviewScore","telephone","province","city","county","isActiveString","createTime"],
+    "operations":["interviewScore","lectureScore","detail"]
+  },
+  "publicTeacherCheckTable" :{
+    "thList" : ["","ID","姓名","电话","学校","教龄","省","市","区","报名日期"],
+    "displayAttr":["teacherId","name","telephone","school","teachingAgeString","province","city","county","createTime"],
+    "operations":["check"]
+  },
+  "privateTeacherCheckTable" :{
+    "thList" : ["","ID","姓名","电话","省","市","区","报名日期"],
+    "displayAttr":["teacherId","name","telephone","province","city","county","createTime"],
+    "operations":["check"]
+  },
+  "publicTeacherInterviewTable" :{
+    "thList" : ["","ID","姓名","电话","学校","省","市","区","教龄","报名日期","面试评分","面试时间"],
+    "displayAttr":["teacherId","name","telephone","school","province","city","county","teachingAgeString","createTime","interviewScore","interviewTime"],
+    "operations":["score","pass","inPool"]
+  },
+  "privateTeacherInterviewTable" :{
+    "thList" : ["","ID","姓名","电话","省","市","区","报名日期","面试评分","面试时间"],
+    "displayAttr":["teacherId","name","telephone","province","city","county","createTime","interviewScore","interviewTime"],
+    "operations":["score","pass","inPool"]
+  },
+  "publicTeacherPoolTable" :{
+    "thList" : ["","ID","姓名","电话","学校","省","市","区","教龄","报名日期","面试时间","试讲时间","不通过类型"],
+    "displayAttr":["teacherId","name","telephone","school","province","city","county","teachingAgeString","createTime","interviewTime","tryLectureTime","stepNoPassState"],
+    "operations":["catch","detail"]
+  },
+  "privateTeacherPoolTable" :{
+    "thList" : ["","ID","姓名","电话","省","市","区","报名日期","面试时间","试讲时间","不通过类型"],
+    "displayAttr":["teacherId","name","telephone","province","city","county","createTime","interviewTime","tryLectureTime","stepNoPassState"],
+    "operations":["catch","detail"]
+  }
+}

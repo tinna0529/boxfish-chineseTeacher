@@ -1,0 +1,249 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  min-height: 100%;
+}
+
+@font-family:"PingFang SC",pingfang,"冬青黑体", "微软雅黑", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+body {
+  font-family: @font-family;
+  font-size: 14px;
+  background-size: 100% 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: inline-block;
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1;
+}
+
+.cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 100;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.vm {
+  vertical-align: middle;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.ib {
+  display: inline-block;
+}
+
+.fh {
+  height: 100%;
+}
+
+input {
+  font-family: @font-family;
+}
+
+input[type=file] {
+  opacity: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.left-half {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  width: 50%;
+}
+.right-half {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+  width: 50%;
+}
+
+.struct {
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.justify {
+  text-align: justify;
+  &:before {
+    content: '';
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+  }
+  &:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+  }
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  background:linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,1),rgba(255,255,255,1),rgba(255,255,255,1),rgba(255,255,255,1),rgba(255,255,255,1),rgba(255,255,255,0));
+}
+
+.transition(@attr:all,@second:.5s) {
+  -webkit-transition: @attr @second;
+  -moz-transition: @attr @second;
+  -ms-transition: @attr @second;
+  -o-transition: @attr @second;
+  transition: @attr @second;
+}
+
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform;
+  -o-transform: @transform;
+  transform: @transform;
+}
+
+.transfrom-origin(@x:center, @y:center) {
+  -webkit-transform-origin: @x @y;
+  -moz-transform-origin: @x @y;
+  -ms-transform-origin: @x @y;
+  -o-transform-origin: @x @y;
+  transform-origin: @x @y;
+}
+
+.perspective(@attr) {
+  perspective: @attr;
+  -moz-perspective: @attr;
+  -webkit-perspective: @attr;
+}
+
+.middle {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  .transform(translate(-50%,-50%));
+}
+
+.blur(@amount:10px) {
+  -webkit-filter: blur(@amount); /* Chrome, Opera */
+  -moz-filter: blur(@amount);
+  -ms-filter: blur(@amount);
+  filter: blur(@amount);
+}
+
+.blur {
+  .blur();
+}
+
+.bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: -1;
+}
+
+.template {
+  display: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+}
+
+input,button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent; /* For some Androids */
+}
+
+a:active {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+//动画
+@keyframes rotate {
+  0%   {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+
+@-moz-keyframes rotate {
+  0%   {-moz-transform: rotate(0deg)}
+  100% {-moz-transform: rotate(360deg)}
+}
+
+@-webkit-keyframes rotate {
+  0%   {-webkit-transform: rotate(0deg)}
+  100% {-webkit-transform: rotate(360deg)}
+}
+
+@-o-keyframes rotate {
+  0%   {-o-transform: rotate(0deg)}
+  100% {-o-transform: rotate(360deg)}
+}
+
+.animation(@attr) {
+  -webkit-animation: @attr;
+  -o-animation: @attr;
+  animation: @attr;
+}
+
+.rotate {
+  .animation(rotate .7s linear infinite);
+}
