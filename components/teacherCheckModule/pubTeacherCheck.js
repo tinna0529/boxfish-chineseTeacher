@@ -9,6 +9,7 @@ import Table from './../commons/table.js';
 import Detail from './pubTeacherCheckDetail';
 import Page from '../commons/page';
 import {Get} from '../../util/ajax';
+import store from 'store';
 
 
 //获取一些数据
@@ -74,7 +75,10 @@ var PubTC = React.createClass({
             teacherId : i
         });
         Get({
-            url:this.state.url+"/web/teacher/teacherAllView/"+i
+            url:this.state.url+"/web/teacher/teacherAllView/"+i,
+            data: {
+                token : store.get("accessToken")
+            }
         }).then((p)=>{
             if(!p.data){
                 alert("该教师信息尚不完善!");
@@ -137,7 +141,8 @@ var PubTC = React.createClass({
         let filterData = {
             "stateStep" : 0,
             "isPublicSchool":1,
-            "page" : page-1
+            "page" : page-1,
+            "token" : store.get("accessToken")
         };
         filterData = passData?Object.assign(passData,filterData):filterData;
         Get({

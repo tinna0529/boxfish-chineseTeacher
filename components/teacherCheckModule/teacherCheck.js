@@ -8,8 +8,6 @@ import ConfirmDialog from '../commons/confirmDialog';
 import '../../less/teacherCheck.less';
 
 
-
-
 var TeacherCheck = React.createClass({
 
     componentDidMount : function () {

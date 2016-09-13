@@ -9,6 +9,7 @@ import Table from './../commons/table.js';
 import Page from '../commons/page';
 import Detail from './priTeacherCheckDetail';
 import {Get} from '../../util/ajax';
+import store from 'store';
 
 //获取一些数据
 var tableConfig = require('../../conf/config.json');
@@ -75,7 +76,10 @@ var PriTC = React.createClass({
     _showDetail : function(id){
         this.setState({teacherId:id});
         Get({
-            url:this.state.url+"/web/teacher/"+id
+            url:this.state.url+"/web/teacher/"+id,
+            data : {
+                token : store.get("accessToken")
+            }
         }).then((p)=>{
             if(!p.data){
                 this.setState({
@@ -163,11 +167,12 @@ var PriTC = React.createClass({
      * @private
      */
     _getPage : function (page,passData,showTip) {
-        let url = this.state.url+urlConfig.teacherList
+        let url = this.state.url+urlConfig.teacherList;
         let filterData = {
             "stateStep" : 0,
             "isPublicSchool":0,
-            "page" : page-1
+            "page" : page-1,
+            "token" : store.get("accessToken")
         };
         filterData = passData?Object.assign(passData,filterData):filterData;
 

@@ -4,6 +4,7 @@
 import React from 'react';
 import LectureDetail from '../commons/lectureDetailForm';
 import {Post} from '../../util/ajax';
+import store from 'store';
 
 var ArrangeLectureTimeModal = React.createClass({
     getInitialState : function(){
@@ -64,7 +65,7 @@ var ArrangeLectureTimeModal = React.createClass({
             };
 
         Post({
-            url : this.props.submitUrl+"/web/common/chooseTriallecture",
+            url : this.props.submitUrl+"/web/common/chooseTriallecture"+"?token="+store.get("accessToken"),
             data : tempData
         }).then((p) =>{
             $(".modal").modal("hide");

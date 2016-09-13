@@ -10,6 +10,7 @@ import Table from './../commons/table.js';
 import ConfirmDialog from '../commons/confirmDialog';
 import Page from '../commons/page';
 import {Get,Post} from '../../util/ajax';
+import store from 'store';
 import PubInterviewScore from './interviewScore';
 import PubLectureScore from './lectureScore';
 import {findElementByTeacherId} from '../../util/formTest';
@@ -138,7 +139,10 @@ var PubTM = React.createClass({
     _showDetail : function(id){
         this.setState({teacherId:id});
         Get({
-            url:this.state.url+"/web/teacher/teacherAllView/"+id
+            url:this.state.url+"/web/teacher/teacherAllView/"+id,
+            data : {
+                token : store.get("accessToken")
+            }
         }).then((p)=> {
             if (!p.data) {
                 alert("该教师信息尚不完善!");
@@ -222,7 +226,7 @@ var PubTM = React.createClass({
     _doFreeze : function(){
         let arr = this.refs.table.state.choiceArr;
         Post({
-            url : this.state.url+"/web/teacher/batchIsActive",
+            url : this.state.url+"/web/teacher/batchIsActive"+"?token="+store.get("accessToken"),
             data : {
                 teacherIds : arr,
                 stateValue:0
@@ -251,7 +255,7 @@ var PubTM = React.createClass({
     _doActivity : function(){
         let arr = this.refs.table.state.choiceArr;
         Post({
-            url : this.state.url+"/web/teacher/batchIsActive",
+            url : this.state.url+"/web/teacher/batchIsActive"+"?token="+store.get("accessToken"),
             data : {
                 teacherIds : arr,
                 stateValue:1
@@ -335,7 +339,8 @@ var PubTM = React.createClass({
         let filterData = {
             "stateStep" : 4,
             "isPublicSchool":1,
-            "page" : page-1
+            "page" : page-1,
+            "token" : store.get("accessToken")
         };
         filterData = passData?Object.assign(passData,filterData):filterData;
         Get({

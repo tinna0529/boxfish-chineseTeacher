@@ -9,6 +9,7 @@ import Table from '../commons/table.js';
 import DateRangePicker from '../commons/dateRangePicker';
 import Page from '../commons/page';
 import {Get,Post} from '../../util/ajax';
+import store from 'store';
 import ConfirmDialog from '../commons/confirmDialog';
 import ScoreModal from './scoreModal';
 import InPoolDialog from '../commons/inPoolModal';
@@ -144,7 +145,7 @@ var PubTI = React.createClass({
     },
     _doPass : function(){
         Post({
-            url : this.state.url+"/web/teacher/updateStatePass",
+            url : this.state.url+"/web/teacher/updateStatePass"+"?token="+store.get("accessToken"),
             data : {
                 "teacherId": this.state.teacherId,
                 "stateStep":2
@@ -165,7 +166,7 @@ var PubTI = React.createClass({
     },
     _doInPool : function(reason){
         Post({
-            url : this.state.url+"/web/teacher/putPond",
+            url : this.state.url+"/web/teacher/putPond"+"?token="+store.get("accessToken"),
             data : {
                 "teacherIds" : [this.state.teacherId],
                 "isInThePond" : 1,
@@ -174,7 +175,6 @@ var PubTI = React.createClass({
         }).then((p)=>{
             this._refreshTable();
         },()=>{});
-        console.log(this.state.teacherId);
     },
     _showBatchInPool : function(){
         let arr = this.refs.table.state.choiceArr;
@@ -187,7 +187,7 @@ var PubTI = React.createClass({
     _doBatchInPool : function(reason){
         let arr = this.refs.table.state.choiceArr;
         Post({
-            url : this.state.url+"/web/teacher/putPond",
+            url : this.state.url+"/web/teacher/putPond"+"?token="+store.get("accessToken"),
             data : {
                 "teacherIds" : arr,
                 "isInThePond" : 1,
@@ -213,7 +213,7 @@ var PubTI = React.createClass({
     _setInterviewTime : function(id){
         let interviewTime = this.refs.table.getInterviewTime("dp"+id);
         Post({
-            url : this.state.url+"/web/teacher/updateDate",
+            url : this.state.url+"/web/teacher/updateDate"+"?token="+store.get("accessToken"),
             data : {
                 "teacherId": id,
                 "dateValue":interviewTime,
@@ -254,12 +254,12 @@ var PubTI = React.createClass({
         this._search(this.state.curPage);
     },
     _getPage : function (page,passData,showTip) {
-        console.log(page);
         let url = this.state.url+urlConfig.teacherList
         let filterData = {
             "stateStep" : 1,
             "isPublicSchool":1,
-            "page" : page-1
+            "page" : page-1,
+            "token" : store.get("accessToken")
         };
         filterData = passData?Object.assign(passData,filterData):filterData;
         Get({

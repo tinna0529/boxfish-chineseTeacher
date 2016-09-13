@@ -4,6 +4,7 @@
 import React from 'react';
 import InterviewForm from '../commons/interviewForm';
 import {Post}  from '../../util/ajax';
+import store from 'store';
 import {NonNullTest,ValueTest} from '../../util/formTest';
 
 var PubInterviewScore = React.createClass({
@@ -63,7 +64,7 @@ var PubInterviewScore = React.createClass({
             }
         };
         Post({
-            url : this.props.url+"/web/teacher/updateInterviewAndMarkScores",
+            url : this.props.url+"/web/teacher/updateInterviewAndMarkScores"+"?token="+store.get("accessToken"),
             data : postData
         }).then((p)=>{
             console.log("success");

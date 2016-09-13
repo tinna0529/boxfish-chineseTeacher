@@ -8,6 +8,7 @@ import SelectComponent from './../commons/selectComponent.js';
 import Table from './../commons/table.js';
 import DateRangePicker from '../commons/dateRangePicker';
 import {Get,Post} from '../../util/ajax';
+import store from 'store';
 import Page from '../commons/page';
 import Detail from './pubTeacherPoolDetail';
 import ConfirmDialog from '../commons/confirmDialog';
@@ -115,7 +116,10 @@ var PubTP = React.createClass({
     _showDetail : function(id){
         this.setState({teacherId:id});
         Get({
-            url:this.state.url+"/web/teacher/teacherAllView/"+id
+            url:this.state.url+"/web/teacher/teacherAllView/"+id,
+            data: {
+                token : store.get("accessToken")
+            }
         }).then((p)=>{
             if(!p.data){
                 alert("该教师信息尚不完善!");
@@ -175,7 +179,7 @@ var PubTP = React.createClass({
     },
     _doCatch : function(){
         Post({
-            url : this.state.url+"/web/teacher/fishOutPond",
+            url : this.state.url+"/web/teacher/fishOutPond"+"?token="+store.get("accessToken"),
             data : {
                 "teacherIds":[this.state.teacherId]
             }
@@ -238,7 +242,8 @@ var PubTP = React.createClass({
         let filterData = {
             "stateStep" : 10,
             "isPublicSchool":1,
-            "page" : page-1
+            "page" : page-1,
+            "token" : store.get("accessToken")
         };
         filterData = passData?Object.assign(filterData,passData):filterData;
         Get({

@@ -12,6 +12,7 @@ import  Detail from './teacherLectureDetail';
 import ArrDialog from './arrangeLectureTimeModal';
 import ScoreDialog from './scoreLectureModal';
 import {Get,Post} from '../../util/ajax';
+import store from 'store';
 import Page from '../commons/page';
 import ModifyArrDialog from './modifyArrDialog';
 import {findElementByTeacherId} from '../../util/formTest';
@@ -139,7 +140,10 @@ var PriTL = React.createClass({
             teacherId : i
         });
         Get({
-            url : this.state.url+"/web/common/triallecture/"+i
+            url : this.state.url+"/web/common/triallecture/"+i,
+            data : {
+                token : store.get("accessToken")
+            }
         }).then((p)=>{
             if(!p.data){
                 this.setState({
@@ -217,7 +221,7 @@ var PriTL = React.createClass({
             "stateStep":3
         };
         Post({
-            url : this.state.url+"/web/teacher/updateStatePass",
+            url : this.state.url+"/web/teacher/updateStatePass"+"?token="+store.get("accessToken"),
             data : filterData
         }).then((p)=>{
             if(!p.data){
@@ -241,7 +245,7 @@ var PriTL = React.createClass({
             "noPassReason" : reason
         };
         Post({
-            url : this.state.url+"/web/teacher/putPond",
+            url : this.state.url+"/web/teacher/putPond"+"?token="+store.get("accessToken"),
             data : filterData
         }).then((p)=>{
             this._refreshTable();
@@ -272,7 +276,7 @@ var PriTL = React.createClass({
             "noPassReason" : reason
         };
         Post({
-            url : this.state.url+"/web/teacher/putPond",
+            url : this.state.url+"/web/teacher/putPond"+"?token="+store.get("accessToken"),
             data : filterData
         }).then((p)=>{
             this._refreshTable();
@@ -295,7 +299,10 @@ var PriTL = React.createClass({
     },
     _getTrialTeacherList : function(){
         Get({
-            url:this.state.url+"/web/common/trialTeacherList/1"
+            url:this.state.url+"/web/common/trialTeacherList/1",
+            data : {
+                token : store.get("accessToken")
+            }
         }).then((p) =>{
             this.setState({
                 teacherAccounts : p.data
@@ -304,7 +311,10 @@ var PriTL = React.createClass({
     },
     _getTrailStudentList : function(){
         Get({
-            url:this.state.url+"/web/common/trialStudentList/1"
+            url:this.state.url+"/web/common/trialStudentList/1",
+            data : {
+                token : store.get("accessToken")
+            }
         }).then((p) =>{
             this.setState({
                 stuAccounts : p.data
@@ -313,7 +323,10 @@ var PriTL = React.createClass({
     },
     _getDemoLessonList : function(){
         Get({
-            url:this.state.url+"/web/common/demoCourses/1"
+            url:this.state.url+"/web/common/demoCourses/1",
+            data : {
+                token : store.get("accessToken")
+            }
         }).then((p) =>{
             this.setState({
                 lectureLessons : p.data
@@ -324,7 +337,10 @@ var PriTL = React.createClass({
     },
     _getTimesLots : function(){
         Get({
-            url:this.state.url+"/timeslot/list/0"
+            url:this.state.url+"/timeslot/list/0",
+            data: {
+                token : store.get("accessToken")
+            }
         }).then((p) =>{
             this.setState({
                 timesLots : p.data
@@ -364,7 +380,8 @@ var PriTL = React.createClass({
         let filterData = {
             "stateStep" : 2,
             "isPublicSchool":0,
-            "page" : page-1
+            "page" : page-1,
+            "token" : store.get("accessToken")
         };
         filterData = passData?Object.assign(passData,filterData):filterData;
 

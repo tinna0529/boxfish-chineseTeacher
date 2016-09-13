@@ -5,6 +5,7 @@ import React from 'react';
 import LectureScoreForm from "../commons/lectureScoreForm";
 import {ValueTest,NonNullTest} from '../../util/formTest';
 import {Post} from '../../util/ajax';
+import store from 'store';
 
 var ScoreLectureModal = React.createClass({
 
@@ -67,7 +68,7 @@ var ScoreLectureModal = React.createClass({
             }
         };
         Post({
-            url : this.props.url+"/web/teacher/updateTrialScores",
+            url : this.props.url+"/web/teacher/updateTrialScores"+"?token="+store.get("accessToken"),
             data : postData
         }).then((p)=>{
             $(".modal").modal("hide");

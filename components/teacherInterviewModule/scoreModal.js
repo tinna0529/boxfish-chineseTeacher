@@ -4,6 +4,7 @@
 import React from 'react';
 import InterviewForm from "../commons/interviewForm";
 import {Post} from '../../util/ajax';
+import store from 'store';
 import {NonNullTest,ValueTest} from  '../../util/formTest';
 
 var ScoreModal = React.createClass({
@@ -64,10 +65,9 @@ var ScoreModal = React.createClass({
             }
         };
         Post({
-            url : this.props.url+"/web/teacher/updateInterviewScores",
+            url : this.props.url+"/web/teacher/updateInterviewScores"+"?token="+store.get("accessToken"),
             data : postData
         }).then((p)=>{
-            console.log("success");
             $(".interviewModal").modal("hide");
             this.props.refreshTable();
         },()=>{});

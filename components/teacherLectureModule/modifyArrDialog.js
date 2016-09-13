@@ -4,6 +4,7 @@
 import React from 'react';
 import LectureDetail from '../commons/lectureDetailForm';
 import {Post} from '../../util/ajax';
+import store from 'store';
 
 var ModifyArrangeDialog = React.createClass({
 
@@ -63,13 +64,12 @@ var ModifyArrangeDialog = React.createClass({
             "timeSlotId":+slotId
         };
         Post({
-            url : this.props.submitUrl+"/web/common/updateTriallecture",
+            url : this.props.submitUrl+"/web/common/updateTriallecture"+"?token="+store.get("accessToken"),
             data : tempData
         }).then((p) =>{
             $(".modal").modal("hide");
             this.props.callBack();
         },(p)=>{
-            console.log("error");
             alert(p.responseJSON.message);
         });
     }

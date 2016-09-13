@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import {Post} from '../../util/ajax';
+import store from 'store';
 
 
 var Detail = React.createClass({
@@ -44,7 +45,7 @@ var Detail = React.createClass({
     },
     _submitPass : function(){
         Post({
-            url :this.props.url+"/web/teacher/updateStatePass",
+            url :this.props.url+"/web/teacher/updateStatePass"+"?token="+store.get("accessToken"),
             data : {
                 "teacherId" : this.props.teacherId,
                 "stateStep" : 1
@@ -60,7 +61,7 @@ var Detail = React.createClass({
             return false;
         }
         Post({
-            url :this.props.url+"/web/teacher/putPond",
+            url :this.props.url+"/web/teacher/putPond"+"?token="+store.get("accessToken"),
             data : {
                 "teacherIds" : [this.props.teacherId],
                 "isInThePond" : 1,

@@ -7,14 +7,13 @@
 //引入插件
 import React from 'react';
 import store from 'store';
-import {Post} from '../util/ajax';
+import jsSHA from 'jssha';
 
 //引入组件
 
 
 //引入样式
 import '../less/login.less';
-var urlConfig = require('../conf/urlConfig.json');
 
 var Login = React.createClass({
     render : function(){
@@ -43,26 +42,35 @@ var Login = React.createClass({
             alert("用户名或者密码不能为空");
             return false;
         }
+        let sig = "TeacherManage" + username + password;
+        var shaObj = new jsSHA("SHA-256", "TEXT");
+        shaObj.update(sig);
+        let signature = shaObj.getHash("HEX");
+
         let tempData = {
-            "loginType" : 1,
+            "systemName" : "TeacherManage",
             "username" : username,
-            "password" : password
+            "password" : password,
+            "signature" : signature
         };
-        Post({
-            url : urlConfig.testUrl+"/web/common/adminLogin",
-            data : tempData
-        }).then((p)=>{
-            if(p.returnCode==401){
+        $.ajax({
+            type: "POST",
+            url : 'http://114.55.140.96:6901/box/fish/login',
+            data : tempData,
+            success : (p)=>{
+                if(p.code==2001){
+                    alert(p.message);
+                    return false;
+                }
+                let token = p.data.accessToken.accessToken;
+                store.set("accessToken",token);
+                this.context.router.push(indexPath);
+            },
+            error : (err)=>{
+                console.log(err);
                 this.context.router.push("/login");
-                alert(p.data);
-                return false;
+                alert("用户名或者密码错误!");
             }
-            store.set("accessToken",p.data);
-            this.context.router.push(indexPath);
-        },(err)=>{
-            console.log(err);
-            this.context.router.push("/login");
-            alert("用户名或者密码错误!");
         });
 
     }

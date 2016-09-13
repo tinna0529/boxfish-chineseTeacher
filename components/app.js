@@ -79,7 +79,7 @@ var App = React.createClass({
         $('.logout-confirm').modal();
     },
     _doLogout : function(){
-        store.remove("accessToken");
+        store.set("accessToken","");
         $('.logout-confirm').modal('hide');
         this.context.router.push('/login');
     }

@@ -11,7 +11,22 @@ export function Post({url,headers,data}) {
             headers:headers,
             contentType:"application/json",
             data:JSON.stringify(data),
-            success:resolve,
+            success:function(response){
+                let {returnCode} = response;
+                if(returnCode == 403){
+                    alert("您没有此操作的权限!");
+                    return;
+                }
+                if(returnCode == 401){
+                    let hash = window.location.hash;
+                    if(hash.substr(0,3) == "#/?" || hash.substr(0,8) == "#/login?"){
+                        return;
+                    }
+                    alert("登录信息过期,请重新登录!");
+                    hashHistory.push({pathname:"/login"});
+                }
+                resolve(response);
+            },
             error:reject
         });
     });
@@ -25,16 +40,23 @@ export function Get({url,headers,data}) {
             url: url,
             headers: headers,
             data: data,
-            success: resolve,
-            error: reject,
-            complete: function (XMLHttpRequest) {
-                if (XMLHttpRequest.responseJSON.returnCode == 401) {
-                    let hash = window.location.hash;
-                    if (hash.substr(0, 3) == "#/?" || hash.substr(0, 8) == "#/login?") return;
-                    alert("登录信息过期,请重新登录!");
-                    window.location.href = "/#/login";
+            success: function(response){
+                let {returnCode} = response;
+                if(returnCode == 403){
+                    alert("您没有此操作的权限!");
+                    return;
                 }
-            }
+                if(returnCode == 401){
+                    let hash = window.location.hash;
+                    if(hash.substr(0,3) == "#/?" || hash.substr(0,8) == "#/login?"){
+                        return;
+                    }
+                    alert("登录信息过期,请重新登录!");
+                    hashHistory.push({pathname:"/login"});
+                }
+                resolve(response);
+            },
+            error: reject
         });
     });
 }
